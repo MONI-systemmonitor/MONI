@@ -1,0 +1,38 @@
+[1.0.0] - the first working version
+
+  MONI 1.0.0 is the first WORKING version of MONI -
+  the earlier attempts never came close to this one,
+  so this is v1.0 rather than a third attempt at a
+  program nobody used. The version is read out of
+  MONI.exe itself, so this heading and the number
+  on the About section cannot disagree. What is in
+  it:
+
+  * The board writes itself: a change is saved a moment
+    after it is made, and closing MONI saves as well, so
+    a board survives a crash or a forced close. The
+    status bar says when it was last written - Saved,
+    Saved just now, Saved 4 minutes ago.
+  * About section in Settings: this file, the version,
+    and where updates are checked. It is collapsed to
+    begin with.
+  * The version is read out of MONI.exe itself, so it
+    cannot disagree with the build that is running.
+  * The installer and the uninstaller: MONI lands in
+    Program Files, and the sensor driver is taken off
+    the machine when MONI is removed.
+  * The updater asks one short text file which version
+    is current, compares it with this build, and opens
+    the download page if a newer one exists. It never
+    replaces MONI itself.
+  * One version number, written once in MONI.csproj:
+    the About section, the installer and the updater
+    all read that one number, so they cannot disagree
+    about which build this is.
+
+  The driver: MONI.sys (WinRing0) is what reads the
+  processor temperature, the fans and the storage
+  hardware, and it is why MONI asks for administrator
+  rights. It is a kernel service, registered as R0MONI,
+  rather than a copied file, and the first elevated run
+  of MONI registers it.
