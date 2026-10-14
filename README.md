@@ -45,12 +45,28 @@ they have removed it is not acceptable.
 
 ## Updates
 
-**MONI does not update itself, deliberately.** *Settings → About → Check for updates* asks one small
-text file for the version that is current, compares it with the build that is running, and — if there
-is a newer one — opens the release page. Installing is then done by hand.
+**MONI looks for a newer version when it starts, and can install it for you.**
 
-The reason is in the sentence above the last one: MONI installs a kernel driver, and a program that
-replaces itself while a driver is loaded is a problem nobody needs.
+It asks one small text file for the version that is current and compares it with the build that is
+running. That happens **once, after the board is up**, so nothing about the start is slower. If there
+is a newer version it says so in the notification center and on the status bar; **if there is not, it
+says nothing at all; and if there is no network it says nothing either** — a machine with no internet
+is not a fault. The whole check can be turned off in *Settings → Starting up*.
+
+*Settings → About* has two buttons:
+
+- **Check for updates** asks the address and tells you the answer. It downloads nothing.
+- **Download and install** fetches the new version, **checks that it arrived whole**, closes MONI,
+  runs the installer without showing you a wizard, and starts MONI again.
+
+**Nothing on your machine is replaced until that check has passed.** The download goes to a temporary
+file, its size is compared with what the server said, and its SHA-256 is compared with the hash the
+release page records. A download that failed, arrived truncated or does not match is refused: MONI
+says so on screen and keeps working, with your installation exactly as it was. A half-replaced MONI
+would be worse than an old one.
+
+The release page is still there for anyone who would rather install by hand, and the button beside it
+opens it.
 
 ## What is in this repository
 

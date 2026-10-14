@@ -1,3 +1,60 @@
+[1.1.0] - MONI updates itself
+
+  Two things the program now does that it never
+  did before: it looks for a newer version when it
+  starts, and it installs one when you say so.
+  Nothing else about MONI changes, and the check
+  can be turned off.
+
+  * MONI LOOKS FOR A NEWER VERSION WHEN IT STARTS.
+    It asks the same one address the Check for
+    updates button asks, ONCE, and only after the
+    board is up - so nothing about the start is
+    slower. If there is a newer version it says so
+    in the notification center and on the status
+    bar. If there is not, it says NOTHING AT ALL:
+    a message on every launch saying nothing has
+    happened is noise, and noise is what makes
+    people turn a feature off. If there is no
+    network it also says nothing, because a machine
+    with no internet is not a fault - the reason
+    goes in MONI's log, where a fault is looked for.
+    There is a tick box in Settings, under Starting
+    up, to turn it off.
+
+  * AND IT CAN INSTALL THE NEW VERSION FOR YOU.
+    Settings, under About, now has a second button
+    beside Check for updates: it downloads the
+    installer, CHECKS THAT IT ARRIVED WHOLE, closes
+    MONI, runs the installer without showing you a
+    wizard, and starts MONI again. The release page
+    is still offered beside it for anybody who would
+    rather do it by hand.
+
+  * THE ORDER IS THE DESIGN, AND IT IS THE PART TO
+    TRUST. Nothing on your machine is replaced until
+    the file has been downloaded and checked: the
+    download goes to a temporary file, its size is
+    compared with what the server said, and its
+    SHA-256 is compared with the hash the release
+    page records. A download that failed, arrived
+    truncated, or does not match is STOPPED - MONI
+    says so on screen, keeps working, and your
+    installation is exactly as it was. A
+    half-replaced MONI is worse than an old one.
+
+  * MONI SAYS WHAT IT IS DOING WHILE IT DOES IT.
+    A small window names each step - asking,
+    downloading, checking, closing - because a
+    program that vanishes and comes back with no
+    explanation is alarming even when it worked.
+
+  * The check itself is unchanged, and so is the
+    address it asks. MONI still does not touch the
+    network unless you have asked it to: the launch
+    check is one request, and everything else waits
+    for a press.
+
 [1.0.4] - the uninstaller leaves nothing behind
 
   * UNINSTALLING LEFT AN EMPTY-LOOKING FOLDER AND ONE
