@@ -1,30 +1,32 @@
-[1.1.1] - the update that could not find itself
+[1.1.1] - the update that could not check itself
 
   A patch, because nothing was added to MONI.
   Two faults were cured, and both were in the
   updater 1.1.0 introduced.
 
-  * 1.1.0 COULD NOT SEE ITS OWN RELEASE, AND SO IT
-    COULD NEVER HAVE UPDATED ITSELF - not to this
-    version and not to any version after it. It
-    asked for a file named MONI-setup.exe in the
-    newest release, and the release of 1.1.0 carried
+  * 1.1.0 LOOKED FOR A FILE THAT DID NOT EXIST.
+    It asked the release for a file named
+    MONI-setup.exe, and the release of 1.1.0 carried
     a file named MONI-1.1.0-setup.exe. The address
     it asked answered "page not found". If you are
-    on 1.1.0, download this version by hand from the
-    release page once: from here on the button
-    works.
+    on 1.1.0, install this version by hand from the
+    release page once: from here on it updates
+    itself.
 
-  * AND THE INSTALL BUTTON IN SETTINGS DID NOTHING
-    ON 1.1.0. It asks the release page what the
-    newest installer is called and what it hashes
-    to, and it was looking for a name with the
-    version inside it. The release page answered
-    with a file it did not recognise, so MONI
-    decided no installer existed and did nothing at
-    all. It now recognises the file whatever the
-    name is, so this cannot happen again if the
-    name is ever changed back.
+  * AND IT COULD NOT CHECK WHAT IT DOWNLOADED. The
+    whole point of the feature is that the file is
+    compared with the SHA-256 the release records
+    before anything is replaced. MONI asked the
+    release page what the newest installer is called
+    and what it hashes to, and it was looking for a
+    name with the version inside it. The release
+    page answered with a file it did not recognise,
+    so MONI found no hash and fell back to checking
+    the file's SIZE alone - and a check that only
+    compares a length is not the check this feature
+    promises. It now recognises the file whatever it
+    is called, so it always has the hash to compare
+    against.
 
   * Nothing else changes. The installer already
     started MONI again after a silent install, and
