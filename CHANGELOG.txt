@@ -1,3 +1,92 @@
+[1.0.4] - the uninstaller leaves nothing behind
+
+  * UNINSTALLING LEFT AN EMPTY-LOOKING FOLDER AND ONE
+    FILE IN IT: uninstall-startup-entry.txt, a report
+    the installer's own tidying-up writes into the
+    folder MONI was installed in while it works.
+    Windows does not delete a folder while anything is
+    inside it, so that one file kept the whole folder
+    standing after MONI had been removed. The folder
+    now goes with everything in it, whatever put it
+    there.
+
+[1.0.3] - the installer's "Run MONI" box now works
+
+  Found by ticking it for the first time, which nobody
+  ever had.
+
+  * THE INSTALLER'S OWN "RUN MONI NOW" CHECK BOX DID
+    NOTHING BUT SHOW AN ERROR. It read "Unable to
+    execute file: MONI.exe - CreateProcess failed;
+    code 740. The requested operation requires
+    elevation." MONI asks Windows
+    for administrator rights, and the installer was
+    starting it in a way that does not read that
+    request, so Windows refused it outright. The
+    installer now hands the launch to Windows the same
+    way the Start menu shortcut does, which reads it
+    and starts MONI with the rights it needs. The
+    program was always installed correctly - only this
+    one check box was broken.
+  * The version file MONI ships beside itself, which
+    the update check reads, said 1.0.1 in the previous
+    build while the program said 1.0.2. It now moves
+    with the version.
+
+[1.0.2] - the two things using 1.0.1 found
+
+  A patch again: nothing was added to the program.
+
+  * THE "START MONI WHEN WINDOWS STARTS" BOX COULD
+    NOT BE CLICKED. On any machine whose Windows
+    security settings are at their default - which is
+    almost every machine - the box was greyed out and
+    the setting could not be reached at all. The rule
+    behind that was written for the old kind of startup
+    entry, which Windows genuinely cannot use to start
+    an administrator program; the entry MONI writes now
+    is a scheduled task, which needs no permission from
+    anybody. The rule is gone, the box works, and the
+    sentence under it says what will actually happen
+    instead of saying MONI refuses.
+  * THE HIDE / SHOW BUTTON NOW SAYS WHAT IT DOES. It
+    was a bare arrow, because words wide enough to read
+    reached over a tile. It reads Hide bars / Show bars
+    and stands in the strip of margin a tile keeps above
+    itself, which is the one place on a full board that
+    holds no control of any tile. It is still there in
+    fullscreen and while both bars are hidden, and it
+    still costs the board nothing.
+
+[1.0.1] - the first build with two faults cured
+
+  A patch rather than a feature release: nothing was
+  added to the program. A published 1.0.1 against an
+  installed 1.0.0 is also what makes the update check
+  show its "a newer version is available" message - the
+  half of that feature nobody had seen, because until
+  now the version file and the built program said the
+  same number.
+
+  * AN UPGRADE NO LONGER LEAVES A STARTUP ENTRY BEHIND
+    THAT POINTS AT A PROGRAM IT DELETED. MONI 1.0.0
+    wrote its startup entry under a name, and the build
+    that replaced it in the same folder was called
+    something else - so a machine that was upgraded kept
+    an entry naming a file that was no longer there.
+    That entry is now swept away when MONI starts, and
+    by the installer as it installs, so a machine that
+    has just been upgraded is clean before MONI is ever
+    run. Nothing needs doing by hand and Settings does
+    not have to be opened.
+  * THE WAY BACK FROM THE HIDDEN BARS IS A FLOATING
+    BUTTON, not a third bar. Hiding the toolbar and the
+    status bar is done to give the board their height,
+    and the button that brings them back now costs the
+    board nothing at all: it sits over the board's own
+    corner, it is still there in fullscreen and with
+    both bars hidden, and it never covers a tile.
+
 [1.0.0] - the first working version
 
   MONI 1.0.0 is the first WORKING version of MONI -
@@ -22,9 +111,10 @@
     Program Files, and the sensor driver is taken off
     the machine when MONI is removed.
   * The updater asks one short text file which version
-    is current, compares it with this build, and opens
-    the download page if a newer one exists. It never
-    replaces MONI itself.
+    is current, compares it with this build, and prints
+    the address of the download page when a newer one
+    exists. It never replaces MONI itself, and nothing
+    is downloaded or started on its own.
   * One version number, written once in MONI.csproj:
     the About section, the installer and the updater
     all read that one number, so they cannot disagree
