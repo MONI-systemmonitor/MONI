@@ -7,9 +7,19 @@ drives, network, frame rate and fans — on one board that you arrange yourself.
 
 ## Install
 
-Download the newest `MONI-x.y.z-setup.exe` from the Releases page and run it:
+Download `MONI-setup.exe` from the Releases page and run it — the newest release is always the one
+that page opens on:
 
 **https://github.com/MONI-SystemMonitor/MONI/releases/latest**
+
+**The file has no version number in its name, and that is deliberate.** A release is found by its
+tag (`v1.1.0`), and the version is written in three places a person actually reads: the tag, the
+About card inside the program, and the entry in *Apps*. **A version typed into a file name is the one
+copy that goes stale** — it happened to this project's own executable, which stayed `MONI3.exe`
+through two renames. It is also what makes the automatic update possible at all: the program asks a
+single unchanging address,
+`https://github.com/MONI-SystemMonitor/MONI/releases/latest/download/MONI-setup.exe`, which GitHub resolves to the
+newest release's file of that name.
 
 - **Windows will warn you.** The installer is not code-signed, so Windows shows *"Windows protected
   your PC"* and names an unknown publisher. Click **More info**, then **Run anyway**. It works; it
