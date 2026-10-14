@@ -9,6 +9,14 @@
     standing after MONI had been removed. The folder
     now goes with everything in it, whatever put it
     there.
+  * CHECK FOR UPDATES NOW TAKES YOU TO THE NEW
+    VERSION. When there is a newer one, Settings ->
+    About opens the release page in your browser so
+    you can download it. Until now the answer named
+    the address and stopped there, which is a dead
+    end for anyone who does not want to copy a URL by
+    hand. MONI still never installs anything itself:
+    the page opens, and you decide.
 
 [1.0.3] - the installer's "Run MONI" box now works
 
