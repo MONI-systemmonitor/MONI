@@ -1,3 +1,36 @@
+[1.1.1] - the update that could not find itself
+
+  A patch, because nothing was added to MONI.
+  Two faults were cured, and both were in the
+  updater 1.1.0 introduced.
+
+  * 1.1.0 COULD NOT SEE ITS OWN RELEASE, AND SO IT
+    COULD NEVER HAVE UPDATED ITSELF - not to this
+    version and not to any version after it. It
+    asked for a file named MONI-setup.exe in the
+    newest release, and the release of 1.1.0 carried
+    a file named MONI-1.1.0-setup.exe. The address
+    it asked answered "page not found". If you are
+    on 1.1.0, download this version by hand from the
+    release page once: from here on the button
+    works.
+
+  * AND THE INSTALL BUTTON IN SETTINGS DID NOTHING
+    ON 1.1.0. It asks the release page what the
+    newest installer is called and what it hashes
+    to, and it was looking for a name with the
+    version inside it. The release page answered
+    with a file it did not recognise, so MONI
+    decided no installer existed and did nothing at
+    all. It now recognises the file whatever the
+    name is, so this cannot happen again if the
+    name is ever changed back.
+
+  * Nothing else changes. The installer already
+    started MONI again after a silent install, and
+    it still does; your boards, your settings and
+    your notifications are untouched by any of it.
+
 [1.1.0] - MONI updates itself
 
   Two things the program now does that it never
